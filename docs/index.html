@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
     <meta charset="UTF-8">
-    <script src = "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js"></script> 
-    <script src = "https://www.gstatic.com/firebasejs/9.9.2/firebase-database.js"></script> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Messages | Firebase</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
- 
+
 <body>
-    <input type="text" id="email">
-    <button id="send">send</button>
-    <script>
-      var firebaseConfig =  {
-        apiKey: "AIzaSyAbSvnmZAwNqR2Ajk8eqbqErE4JVCSlrZM",
-        authDomain: "aekarupa.firebaseapp.com",
-        databaseURL: "https://aekarupa-default-rtdb.firebaseio.com",
-        projectId: "aekarupa",
-        storageBucket: "aekarupa.appspot.com",
-        messagingSenderId: "605484862082",
-        appId: "1:605484862082:web:c3b666e0f9e102eb22829b",
-        measurementId: "G-8963Q2J785"
-    };
- 
-        firebase.initializeApp(firebaseConfig);
-        var firebaseref = firebase.database().ref('Mails');
-        document.querySelector("#send").addEventListener('click',()=>{
-            const email = document.getElementById('email').value;
-            firebaseref.push(email);
-        });
-    </script>
+    <div class="container">
+        <form action="" id="contactForm">
+            <div class="alert">Your message sent</div>
+
+            <div class="inputBox">
+                <input type="text" id="name" placeholder="Your name...." />
+            </div>
+
+            <div class="inputBox">
+                <input type="email" id="emailid" placeholder="Your Email....." />
+            </div>
+
+            <div class="inputBox">
+                <textarea id="msgContent" cols="30" rows="10" placeholder="Message"></textarea>
+            </div>
+
+            <div class="inputBox">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="./mail.js"></script>
 </body>
- 
+
 </html>
